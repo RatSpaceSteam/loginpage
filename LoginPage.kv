@@ -1,0 +1,58 @@
+<LoginPageManager>:
+    Question1Screen:
+        name: "question1"
+    CorrectScreen:
+        name: "correct"
+        Label:
+            text: "CORRECT!!!"
+        Button:
+            size_hint: .5,.2
+            text: "WOULD YOU LIKE TO KNOW MORE???"
+            pos_hint: {"x":.25}
+            # "Looking into this"
+            # on_release: Question2Screen()
+    ErrorScreen:
+        name: "error"
+        Label:
+            text: "WRONG!!!"
+
+<Question1Screen>:
+    orientation: "vertical"
+    padding: "15dp"
+    Label:
+        spacing: "15dp"
+        size_hint: 1,.25
+        text: "What is the state fruit of Texas?"
+        pos_hint: {"x":.0}
+        pos_hint: {"y":.75}
+    BoxLayout:
+        orientation: "horizontal"
+        Button:
+            text: "Peach"
+            size_hint: .2,.75
+            on_release: root.answer_question(False)
+        Button:
+            text: "Orange"
+            size_hint: .2,.75
+            on_release: root.answer_question(False)
+        Button:
+            text: "Grapefruit"
+            size_hint: .2,.75
+            on_release: root.answer_question(True)
+
+<Question2Screen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            spacing: "15dp"
+            size_hint: 1,.25
+            text: "Complete the following verse: \n\n'The stars at night are big and bright,______________"
+            pos_hint: {"x":.0}
+            pos_hint: {"y":.75}
+            orientation: "horizontal"
+        TextInput:
+            id: heart
+            hint_text: "Enter remaining verse"
+        Button:
+            text: "Press Enter"
+            on_release: root.answer_question(heart.text)
