@@ -3,19 +3,24 @@
         name: "question1"
     CorrectScreen:
         name: "correct"
-        Label:
-            text: "CORRECT!!!"
-        Button:
-            size_hint: .5,.2
-            text: "WOULD YOU LIKE TO KNOW MORE???"
-            pos_hint: {"x":.25}
-            # "Looking into this"
-            # on_release: Question2Screen()
     ErrorScreen:
         name: "error"
-        Label:
-            text: "WRONG!!!"
+    Question2Screen:
+        name: "question2"
 
+<CorrectScreen>:
+    Label:
+        text: "CORRECT!!!"
+    Button:
+        size_hint: .5,.2
+        text: "WOULD YOU LIKE TO KNOW MORE???"
+        pos_hint: {"x":.25}
+        #"Looking into this"
+        on_release: root.forward()
+
+<ErrorScreen>:
+    Label:
+        text: "WRONG!!!"
 <Question1Screen>:
     orientation: "vertical"
     padding: "15dp"
@@ -43,6 +48,8 @@
 <Question2Screen>:
     BoxLayout:
         orientation: "vertical"
+        Label:
+            id: invalid_guess
         Label:
             spacing: "15dp"
             size_hint: 1,.25
