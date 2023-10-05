@@ -49,17 +49,19 @@
     BoxLayout:
         orientation: "vertical"
         Label:
-            id: invalid_guess
-        Label:
             spacing: "15dp"
-            size_hint: 1,.25
+            size_hint: 1,1
             text: "Complete the following verse: \n\n'The stars at night are big and bright,______________"
             pos_hint: {"x":.0}
             pos_hint: {"y":.75}
-            orientation: "horizontal"
         TextInput:
-            id: heart
-            hint_text: "Enter remaining verse"
+            id: answer
+            text: "Enter"
+            pos_hint: {"x":.25}
+            size_hint: .5, .1
+        Label:
+            text: ""
+            id: test
         Button:
-            text: "Press Enter"
-            on_release: root.answer_question(heart.text)
+            text: "Enter"
+            on_release: root.answer_question(answer.text)

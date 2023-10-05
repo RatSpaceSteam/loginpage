@@ -22,11 +22,13 @@ class Question1Screen(Screen):
             self.manager.current = "error"
 
 class Question2Screen(Screen):
-    def answer_question(self, bool):
-        if bool:
-            self.manager.current = "correct"
+    def answer_question(self, text):
+        if text.lower() == "deep in the heart of texas.":
+            self.ids.test.text = "CORRECT"
+            self.ids.test.font_size = 50
         else:
-            self.manager.current = "error"
+            self.ids.test.text = "WRONG"
+            self.ids.test.font_size = 50
 
 class CorrectScreen(Screen):
     def forward(self):
